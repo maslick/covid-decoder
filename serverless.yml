@@ -1,0 +1,42 @@
+service: covid-decoder
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: go1.x
+  stage: ${opt:stage, 'dev'}
+  region: eu-central-1
+  lambdaHashingVersion: 20201221
+  apiGateway:
+    shouldStartNameWithService: true
+
+package:
+  exclude:
+    - ./**
+  include:
+    - ./bin/**
+
+functions:
+  parse:
+    handler: bin/http
+    memorySize: 128
+    timeout: 5
+    events:
+      - http:
+          path: /parse
+          method: post
+  validate:
+    handler: bin/http
+    memorySize: 128
+    timeout: 5
+    events:
+      - http:
+          path: /validate
+          method: post
+  health:
+    handler: bin/http
+    memorySize: 128
+    events:
+      - http:
+          path: /
+          method: get

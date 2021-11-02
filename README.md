@@ -6,24 +6,36 @@ This is a super simple REST API that parses a COVID-19 certificate provided in t
 
 ## Installation
 ```zsh
-go build -ldflags="-s -w" && upx covid-decoder && mv covid-decoder decoder 
-./decoder
+# local
+make serverfull 
+make run
+
+# AWS
+aws configure
+make deploy
 ```
 
 ## Usage
 ```zsh
 CODE=`cat examples/cert-1.txt`
 
-curl -sX POST localhost:8080/parse --data "{\"code\": \"${CODE}\"}" | jq
-curl -sX POST localhost:8080/validate --data "{\"code\": \"${CODE}\"}" | jq
+# Run locally
+URL="localhost:8080"
+curl -sX POST $URL/parse --data "{\"code\": \"${CODE}\"}" | jq
+curl -sX POST $URL/validate --data "{\"code\": \"${CODE}\"}" | jq
+
+# Run on AWS 
+URL="https://f00wc4ugz6.execute-api.eu-central-1.amazonaws.com/dev"
+curl -sX POST $URL/parse --data "{\"code\": \"${CODE}\"}" | jq
+curl -sX POST $URL/validate --data "{\"code\": \"${CODE}\"}" | jq
 ```
 
 Output:
 ```json
 {
     "dob": "2001-12-31",
-    "expires_at": "2023-10-14 00:00:00 CEST",
-    "issued_at": "2021-10-27 13:20:48 CEST",
+    "expires_on": "2023-10-14 00:00:00 CEST",
+    "issued_on": "2021-10-27 13:20:48 CEST",
     "issued_by": "CN=CSCA-FRANCE,O=Gouv,C=FR",
     "kid": "53FOjX/4aJs=",
     "name": "MICKEY MOUSE",
@@ -62,4 +74,22 @@ Output:
         "certificate_id": "URN:UVCI:01:FR:W7V2BE46QSBJ#L"
     }]
 }
+```
+
+Fields description:
+```
+dob: Date of birth
+name: Certificate owner's full name 
+kid: Public key identifier
+
+target: Disease or agent targeted
+vaccine: Vaccine/prophylaxis
+product: Vaccine medical product
+manufacturer: Vaccine marketing authorization holder or manufacturer
+doses: Number in a series of vaccinations/doses
+dose_series: Total number of vaccination per series
+date: Date of vaccination, indicating the date of the latest dose recieved
+country: Member State or third country in which the vaccine was administered
+issuer: Certificate issuer
+certificate_id: Unique certificate identifier
 ```
