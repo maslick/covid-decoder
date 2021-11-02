@@ -9,6 +9,14 @@ A simple REST API that parses COVID-19 certificates (provided in textual form)
 make serverfull 
 make run
 
+# docker
+make docker-build
+
+docker images | grep covid-decoder
+covid-decoder        latest    4806d6ec9fef   1 minute ago   5.47MB
+
+make docker-run
+
 # AWS
 aws configure
 make deploy

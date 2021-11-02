@@ -12,5 +12,11 @@ serverfull:
 run: serverfull
 	bin/serverfull
 
+docker-build:
+	docker build -t covid-decoder:latest .
+
+docker-run: docker-build
+	docker run -d -p 8081:8080 covid-decoder:latest
+
 clean:
 	rm -rf ./bin
