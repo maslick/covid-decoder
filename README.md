@@ -42,7 +42,7 @@ Output:
     "issued_on": "2021-10-27 13:20:48 CEST",
     "issued_by": "CN=CSCA-FRANCE,O=Gouv,C=FR",
     "kid": "53FOjX/4aJs=",
-    "name": "MICKEY MOUSE",
+    "name": "John Doe",
     "signed_by": "CN=DSC_FR_023,OU=180035024,O=CNAM,C=FR",
     "vaccinations": [{
         "target": "840539006",
