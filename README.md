@@ -1,6 +1,5 @@
 # covid-decoder
-
-This is a super simple REST API that parses a COVID-19 certificate provided in textual form.
+A simple REST API that parses COVID-19 certificates (provided in textual form)
 
 ![overview](overview.png)
 
