@@ -27,6 +27,11 @@ curl -sX POST $URL/validate --data "{\"code\": \"${CODE}\"}" | jq
 URL="https://f00wc4ugz6.execute-api.eu-central-1.amazonaws.com/dev"
 curl -sX POST $URL/parse --data "{\"code\": \"${CODE}\"}" | jq
 curl -sX POST $URL/validate --data "{\"code\": \"${CODE}\"}" | jq
+
+# Scan QR code and decode
+CODE=`zbarimg --raw qr.jpeg 2>&1 | head -n 1`
+curl -sX POST $URL/parse --data "{\"code\": \"${CODE}\"}" | jq
+curl -sX POST $URL/validate --data "{\"code\": \"${CODE}\"}" | jq
 ```
 
 Output:
