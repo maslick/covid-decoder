@@ -16,7 +16,7 @@ make deploy
 
 ## Usage
 ```zsh
-CODE=`cat examples/cert-1.txt`
+CODE=`cat my-covid-certificate.txt`
 
 # Run locally
 URL="localhost:8080"
