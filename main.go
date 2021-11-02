@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/maslick/covid-decoder/src"
-)
+import "github.com/maslick/covid-decoder/src"
 
 func main() {
 	server := src.RestController{Service: &src.Service{}}
