@@ -106,7 +106,7 @@ Fields description (see complete schema [here](https://github.com/ehn-dcc-develo
 ```
 dob: Date of birth
 name: Certificate owner's full name
-std_name: Certificate owner's full name, transliterated ICAO 9303
+std_name: Certificate owner's full name, transliterated in complience with ICAO 9303
 kid: Public key identifier
 
 target: Disease or agent targeted
