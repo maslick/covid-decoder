@@ -35,23 +35,20 @@ make deploy
 ```zsh
 CODE=`cat my-covid-certificate.txt`
 
-# Run locally
+# Locally
 URL="localhost:8080"
-curl -sX POST $URL/parse --data "{\"code\": \"${CODE}\"}" | jq
-curl -sX POST $URL/validate --data "{\"code\": \"${CODE}\"}" | jq
 
-# Run via docker
+# Docker
 URL="localhost:8081"
-curl -sX POST $URL/parse --data "{\"code\": \"${CODE}\"}" | jq
-curl -sX POST $URL/validate --data "{\"code\": \"${CODE}\"}" | jq
 
-# Run on AWS 
+# AWS 
 URL="https://f00wc4ugz6.execute-api.eu-central-1.amazonaws.com"
-curl -sX POST $URL/parse --data "{\"code\": \"${CODE}\"}" | jq
-curl -sX POST $URL/validate --data "{\"code\": \"${CODE}\"}" | jq
 
-# Scan QR code and decode
+# Scan QR code and decode using zbarimg
 CODE=`zbarimg --raw qr.jpeg 2>&1 | head -n 1`
+```
+
+```zsh
 curl -sX POST $URL/parse --data "{\"code\": \"${CODE}\"}" | jq
 curl -sX POST $URL/validate --data "{\"code\": \"${CODE}\"}" | jq
 ```
