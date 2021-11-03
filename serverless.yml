@@ -9,6 +9,9 @@ provider:
   lambdaHashingVersion: 20201221
   apiGateway:
     shouldStartNameWithService: true
+  httpApi:
+    cors: true
+
 
 package:
   exclude:
@@ -22,7 +25,7 @@ functions:
     memorySize: 128
     timeout: 5
     events:
-      - http:
+      - httpApi:
           path: /parse
           method: post
   validate:
@@ -30,13 +33,25 @@ functions:
     memorySize: 128
     timeout: 5
     events:
-      - http:
+      - httpApi:
           path: /validate
           method: post
   health:
     handler: bin/http
     memorySize: 128
     events:
-      - http:
+      - httpApi:
           path: /
           method: get
+
+resources:
+  extensions:
+    HttpApiIntegrationValidate:
+      Properties:
+        PayloadFormatVersion: '1.0'
+    HttpApiIntegrationParse:
+      Properties:
+        PayloadFormatVersion: '1.0'
+    HttpApiIntegrationHealth:
+      Properties:
+        PayloadFormatVersion: '1.0'
