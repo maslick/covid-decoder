@@ -64,6 +64,7 @@ Output:
     "issued_by": "CN=CSCA-FRANCE,O=Gouv,C=FR",
     "kid": "53FOjX/4aJs=",
     "name": "John Doe",
+    "std_name": "Иван Доу",
     "signed_by": "CN=DSC_FR_023,OU=180035024,O=CNAM,C=FR",
     "vaccinations": [{
         "target": "840539006",
@@ -104,7 +105,8 @@ Output:
 Fields description (see complete schema [here](https://github.com/ehn-dcc-development/ehn-dcc-schema/blob/release/1.3.0/DCC.Types.schema.json) and [here](https://github.com/ehn-dcc-development/ehn-dcc-schema/blob/release/1.3.0/DCC.Core.Types.schema.json)):
 ```
 dob: Date of birth
-name: Certificate owner's full name 
+name: Certificate owner's full name
+std_name: Certificate owner's full name, transliterated ICAO 9303
 kid: Public key identifier
 
 target: Disease or agent targeted

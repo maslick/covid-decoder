@@ -25,6 +25,7 @@ type Request struct {
 
 type Message struct {
 	Name         string     `json:"name"`
+	StdName      string     `json:"std_name"` // transliterated ICAO 9303
 	DOB          string     `json:"dob"`
 	KID          string     `json:"kid"`
 	IssuedOn     string     `json:"issued_on"`
@@ -245,6 +246,10 @@ func createMessage(decoded *coronaqr.Decoded) Message {
 
 	message.ExpiresOn = fmt.Sprintf("%+v", decoded.Expiration.Format(dateFormat))
 	message.Name = fmt.Sprintf(
+		"%s %s",
+		decoded.Cert.PersonalName.GivenName,
+		decoded.Cert.PersonalName.FamilyName)
+	message.StdName = fmt.Sprintf(
 		"%s %s",
 		decoded.Cert.PersonalName.GivenNameStd,
 		decoded.Cert.PersonalName.FamilyNameStd)
