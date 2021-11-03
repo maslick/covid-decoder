@@ -14,11 +14,11 @@ The server app can be compiled into a small binary (2-5 MB) and run on any serve
 
 ## :white_check_mark: Installation
 ```zsh
-# local
+# Locally
 make serverfull 
 make run
 
-# docker
+# Docker
 make docker-build
 
 docker images | grep covid-decoder
