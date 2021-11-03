@@ -61,11 +61,11 @@ Output:
     "dob": "2001-12-31",
     "expires_on": "2023-10-14 00:00:00 CEST",
     "issued_on": "2021-10-27 13:20:48 CEST",
-    "issued_by": "CN=CSCA-FRANCE,O=Gouv,C=FR",
+    "issued_by": "CN=CSCA-UA,O=Gouv,C=UA",
     "kid": "53FOjX/4aJs=",
-    "name": "John Doe",
-    "std_name": "Иван Доу",
-    "signed_by": "CN=DSC_FR_023,OU=180035024,O=CNAM,C=FR",
+    "name": "Iван Доу",
+    "std_name": "John Doe",
+    "signed_by": "CN=DSC_UA_023,OU=180035024,O=CNAM,C=UA",
     "vaccinations": [{
         "target": "840539006",
         "vaccine": "1119349007",
@@ -74,9 +74,9 @@ Output:
         "doses": 1,
         "dose_series": 2,
         "date": "2021-10-27",
-        "country": "FR",
+        "country": "UA",
         "issuer": "CNAM",
-        "certificate_id": "URN:UVCI:01:FR:W7V2BE46QSBJ#L"
+        "certificate_id": "URN:UVCI:01:UA:W7V2BE46QSBJ#L"
     }],
     "tests": [{
         "target": "840539006",
@@ -85,19 +85,19 @@ Output:
         "manufacturer": "1232",
         "sample_datetime": "2021-07-12T07:38:33Z",
         "test_result": "260415000",
-        "testing_centre": "Health Institute, Paris",
-        "country": "FR",
+        "testing_centre": "Health Institute, Kyiv",
+        "country": "UA",
         "issuer": "CNAM",
-        "certificate_id": "URN:UVCI:01:FR:W7V2BE46QSBJ#L"
+        "certificate_id": "URN:UVCI:01:UA:W7V2BE46QSBJ#L"
         }],
     "recoveries": [{
         "target": "840539006",
-        "country": "FR",
+        "country": "UA",
         "issuer": "CNAM",
         "first_positive_test": "2021-05-07",
         "valid_from": "2021-10-27 13:20:48 CEST",
         "valid_until": "2023-10-14 00:00:00 CEST",
-        "certificate_id": "URN:UVCI:01:FR:W7V2BE46QSBJ#L"
+        "certificate_id": "URN:UVCI:01:UA:W7V2BE46QSBJ#L"
     }]
 }
 ```
