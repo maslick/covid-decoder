@@ -1,7 +1,7 @@
 .PHONY: clean build deploy
 
 build:
-	GOOS=linux go build -ldflags="-s -w" -tags lambda -o bin/http lambda/lambda.go
+	GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -tags lambda -o bin/http lambda/lambda.go
 
 deploy: clean build
 	sls deploy --verbose
