@@ -3,6 +3,16 @@ A simple REST API that parses COVID-19 certificates (provided in textual form)
 
 ![overview](overview.png)
 
+## Motivation
+There are plenty of Green Pass (COVID-19 certificate) validators out there (Github) written in different languages - Golang, Node.js, Python. Some just parse the QR-code, some verify the signature. I thought it might be a good idea to create a REST API which you can feed a QR code (in textual format) and get all the info contained in it. 
+
+The server app can be compiled into a small binary (2-5MB) and run on any server:
+* Locally 
+* Docker, Kubernetes, etc.
+* Serverless on AWS
+* Raspberry PI
+
+
 ## Installation
 ```zsh
 # local
