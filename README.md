@@ -10,7 +10,7 @@ The server app can be compiled into a small binary (2-5 MB) and run on any serve
 * Locally 
 * Docker, Kubernetes, etc.
 * Serverless on AWS
-* Raspberry PI
+* Raspberry PI, etc.
 
 ## :white_check_mark: Installation
 ```zsh
